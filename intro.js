@@ -1,19 +1,4 @@
-console.info("my first JS file");
-var name = "Ana";
-var employed = true;
 
-console.warn("employed");
-console.warn(employed);
-
-console.info("Name:");
-console.info(name);
-
-name = "Sabau";
-
-console.info("Name:");
-console.info(name);
-
-console.log("before inside welcome message");
 function getWelcomeMsg() {
     console.log("inside welcome message");
     return "Welcome to my site!";
@@ -40,25 +25,7 @@ console.info("summaryElement", summaryElement);
 var color = getColor();
 summaryElement.style.color = color;
 
-//first example
-function hideHomePage() {
-    var el = document.getElementById('home-page');
-    el.style.display = 'none';
-}
 
-function showSkillsPage() {
-    document.getElementById('skills-page').style.display = 'block';
-}
-
-function clickOnSkills() {
-    //hideHomePage();
-    //showSkillsPage();
-    hidePage('home-page');
-    hidePage('languages-page');
-    hidePage('about-page');
-    showPage('skills-page');
-}
-//first example end
 
 function hidePage(page) {
     var el = document.getElementById(page);
