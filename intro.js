@@ -64,7 +64,7 @@ initMenu();
 function showSkills() {
     var skills = ['html', 'css', 'js'];
     
-    var htmlSkills = skills.map(function (skill, index) {
+    var htmlSkills = skills.map(function(skill, index) {
         return '<li>' + skill.toUpperCase() + '</li>';
     });
 
