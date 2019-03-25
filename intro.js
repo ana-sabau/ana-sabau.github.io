@@ -62,15 +62,22 @@ function hideAllPages() {
 initMenu(); 
 
 function showSkills() {
-    var skills = ['html', 'css', 'js', 'nodejs'];
-    var allEndorsements = [8, 12, 19, 3];
+    //var skills = ['html', 'css', 'js', 'nodejs'];
+    //var allEndorsements = [8, 12, 19, 3];
+    var skills = [
+        {name: 'html', endorsements: 8}, 
+        {name: 'css', endorsements: 12}, 
+        {name: 'js', endorsements: 20}, 
+        {name: 'nodejs', endorsements: 3}
+    ];
 
     var htmlSkills = skills.map(function(skill, index) {
-        var endorsements = allEndorsements[index];
-        return '<li>' + skill.toUpperCase() + (' <span class="endorsement">(' + endorsements + ")</span>") + '</li>';
+        var endorsements = skill.endorsements;
+        return '<li>' + skill.name.toUpperCase() + (' <span class="endorsement">(' + endorsements + ")</span>") + '</li>';
     });
-
-    var ul = document.querySelector('#skills-page ul');
+//variabila skill din paranteza (skill, index) e intotdeauna la singular, iar cea din functie (skills.map) e la plural
+    
+var ul = document.querySelector('#skills-page ul');
     ul.innerHTML = htmlSkills.join('');
 }
 
