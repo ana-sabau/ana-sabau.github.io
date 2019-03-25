@@ -71,17 +71,14 @@ function showSkills() {
         {name: 'nodejs', endorsements: 3}
     ];
 
+    skills.sort(function(a, b){
+        return b.endorsements - a.endorsements;
+    });
+    //sortare descresc in functie de nr endorsements
+
     var htmlSkills = skills.map(function(skill) {
         var endorsedBy = skill.endorsedBy ? ' - ' + skill.endorsedBy : '';
-        //if simplificat
-
-        //var endorsedBy = skill.endorsedBy;
-       // if (endorsedBy) {
-       //     endorsedBy = ' - ' + endorsedBy;
-        //} else {
-        //    endorsedBy = '';
-        //}
-       
+        //if simplificat (ternary)
         var endorsements =` <span class="endorsement">(${skill.endorsements}${endorsedBy})</span>`;
         return '<li>' + skill.name.toUpperCase() + endorsements + '</li>';
     });
