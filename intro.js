@@ -61,16 +61,7 @@ function hideAllPages() {
 
 initMenu(); 
 
-function showSkills() {
-    //var skills = ['html', 'css', 'js', 'nodejs'];
-    //var allEndorsements = [8, 12, 19, 3];
-    var skills = [
-        {name: 'html', endorsements: 8}, 
-        {name: 'css', endorsements: 12, endorsedBy: 'Vasile I'}, 
-        {name: 'js', endorsements: 20, endorsedBy: 'Andrei I'}, 
-        {name: 'nodejs', endorsements: 3}
-    ];
-
+function showSkills(skills) {
     skills.sort(function(a, b){
         return b.endorsements - a.endorsements;
     });
@@ -79,6 +70,7 @@ function showSkills() {
     var htmlSkills = skills.map(function(skill) {
         var endorsedBy = skill.endorsedBy ? ' - ' + skill.endorsedBy : '';
         //if simplificat (ternary)
+        //skill.endorsedBy echivalent cu skill["endorsedBy"] - varianta a 2-a se foloseste cand atributul are spatii (endorsed by)
         var endorsements =` <span class="endorsement">(${skill.endorsements}${endorsedBy})</span>`;
         return '<li>' + skill.name.toUpperCase() + endorsements + '</li>';
     });
@@ -91,6 +83,18 @@ var ul = document.querySelector('#skills-page ul');
 hideAllPages();
 showPage('skills-page');
 
-showSkills(); 
 
+//to do: load skills.json and pass them to showSkills
 
+console.log('1 before loading');
+fetch('data/skills.json')
+  .then(function(response) {
+    console.info('2 loaded skills.json');
+    return response.json();
+  })
+  .then(function(myJson) {
+    console.log('3 skills', myJson);
+    showSkills(myJson);
+  }); 
+
+console.log('4 after load');
