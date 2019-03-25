@@ -62,15 +62,20 @@ function hideAllPages() {
 initMenu(); 
 
 function showSkills() {
-    var skills = ['html', 'css', 'js'];
-    
+    var skills = ['html', 'css', 'js', 'nodejs'];
+    var allEndorsements = [8, 12, 19, 3];
+
     var htmlSkills = skills.map(function(skill, index) {
-        return '<li>' + skill.toUpperCase() + '</li>';
+        var endorsements = allEndorsements[index];
+        return '<li>' + skill.toUpperCase() + (' <span class="endorsement">(' + endorsements + ")</span>") + '</li>';
     });
 
     var ul = document.querySelector('#skills-page ul');
     ul.innerHTML = htmlSkills.join('');
 }
+
+hideAllPages();
+showPage('skills-page');
 
 showSkills(); 
 
